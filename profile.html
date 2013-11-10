@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Profile Page</title>
+    <title>Career Link - Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -10,12 +10,13 @@
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
+		body {
+			padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		}
+
     </style>
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
+	
   </head>
 
   <body>
@@ -40,8 +41,94 @@
         </div>
       </div>
     </div>
-    
-    
-    <script src="jquery.js"></script>
+	
+	<div class="container">
+		<h3>YOUR NAME HERE</h3>
+		<h4>Your Major</h4>
+		<h4>Your year in school</h4>
+		<br>
+		<div class="panel-group" id="accordion">
+		  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+				  Tagged Jobs
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse">
+			  <div class="panel-body">
+				Here are all the jobs you've tagged
+			  </div>
+			  <table class="table">
+					<thead>
+						<tr>
+							<th>delete</th>
+							<th>Job Title</th>
+							<th>Company</th>
+							<th>Location(s)</th>
+							<th>Deadline</th>
+							<th>Posted</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		  </div>
+		  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+				  Favorite Companies
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse">
+			  <div class="panel-body">
+				Here are all the companies you've favorited - and whether or not they'll be at the next career fair.
+			  </div>
+			  <table class="table">
+				<thead>
+					<tr>
+						<th>delete</th>
+						<th>Company</th>
+						<th>Career Fair</th>
+					</tr>
+				</thead>
+			  </table>
+			</div>
+		  </div>
+		  <div class="panel panel-default">
+			<div class="panel-heading">
+			  <h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+				  Resumes, Cover Letters, and other Documents
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse">
+			  <div class="panel-body">
+				ALL THE DOCUMENTS
+			  </div>
+			  <table class="table">
+				<thead>
+					<tr>
+						<th>delete</th>
+						<th>edit</th>
+						<th>Document</th>
+						<th>Last Updated On</th>
+					</tr>
+				</thead>
+			  </table>
+			  <button content="Add Document"/>
+			</div>
+		  </div>
+		</div>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
+    <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>-->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
   </body>
 </html>
