@@ -41,19 +41,24 @@
       </div>
     </div>
     
-	<div class="container">
-		<!--Thinking that the tab can show the corresponding div, and hide the other-->
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#">Calendar</a></li>
-			<li><a href="#">Listing</a></li>
-		</ul>
-		<div id="cal" class="show">
+    
+    <div id="content" class="container">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+		<li class="active"><a href="#calendar" data-toggle="tab">Calendar</a></li>
+        <li><a href="#list" data-toggle="tab">Listing</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+    
+    	<div class="tab-pane active" id="calendar">
 			<iframe src="https://www.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America/Winnipeg" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 		</div>
-		<div id="listing" class="hidden">
-		</div>
-	</div>
+        <div class="tab-pane" id="list">
+            <p>Insert your listing here</p>
+        </div>
+    </div>
+    </div>
     
-    <script src="jquery.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
