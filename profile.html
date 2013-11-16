@@ -16,6 +16,49 @@
 
     </style>
 	
+	<script type="application/javascript">
+		function loadJSON()
+		{
+		   var username = "james";
+		   //var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/"+username+"_profile.json";
+		   var data_file = "james_profile.json";
+		   var http_request = new XMLHttpRequest();
+		   try{
+			  // Opera 8.0+, Firefox, Chrome, Safari
+			  http_request = new XMLHttpRequest();
+		   }catch (e){
+			  // Internet Explorer Browsers
+			  try{
+				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			  }catch (e) {
+				 try{
+					http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				 }catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				 }
+			  }
+		   }
+		   http_request.onreadystatechange  = function(){
+			  if (http_request.readyState == 4  )
+			  {
+				// Javascript function JSON.parse to parse JSON data
+				var jsonObj = JSON.parse(http_request.responseText);
+
+				// jsonObj variable now contains the data structure and can
+				// be accessed as jsonObj.name and jsonObj.country.
+				document.getElementById("name").innerHTML =  jsonObj.name;
+				document.getElementById("major").innerHTML = jsonObj.major;
+				document.getElementById("year").innerHTML = jsonObj.year;
+			  }
+		   }
+		   http_request.open("GET", data_file, true);
+		   http_request.send();
+		}
+	</script>
+
+	
   </head>
 
   <body>
@@ -43,7 +86,9 @@
     </div>
 	
 	<div class="container">
-	<h1>John Egbert <small> Preforsh | Ectobiology Major</small></h1>
+	<!--<h1>John Egbert <small> Prefrosh | Ectobiology Major</small></h1>-->
+	<button type="button" onclick="loadJSON()">Update Details </button>
+	<h1 id="name" /> <p id="year"/> <p id="major"/>
 		<div class="panel-group" id="accordion">
 		  <div class="panel panel-default">
 			<div class="panel-heading">
@@ -92,6 +137,21 @@
 					</tr>
 				</thead>
 			  </table>
+			  	<?php
+					$h = fopen("Fave_companies.txt", "r");
+					 
+					$linenum = 1;
+					echo "<ul>";
+					while( !feof($h) ){
+						printf("\t<li>Line %d: %s</li>",
+							$linenum++,
+							fgets($h)
+						);
+					}
+					echo "</ul>\n";
+					 
+					fclose($h);
+				?>
 			</div>
 		  </div>
 		  <div class="panel panel-default">
@@ -127,5 +187,7 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
   </body>
 </html>
