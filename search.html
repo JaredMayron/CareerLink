@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div id="main" class="container">
 		<div class="row search">
     		<form role="form">
     		    <div class="input-group">
@@ -60,114 +60,100 @@
       			 </div>
   		  </form>
 		</div>
-    	
-    	<div class="panel panel-default">
-    		<div class="panel-heading">
-    		<div class="row">
-    			<div class="col-md-8">
-    				<span class="card-title">Problem Sleuth</span>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="pull-right"><button type="button" class="btn btn-lg btn-success">Apply Now!</button></div>
-    			</div>
-    		</div>
-    		</div>
-  			<div class="panel-body">
-  				<div class="row">
-  					<div class="col-md-8">
-  						Escape your office! Join up with your fellow sleuths! Make peace between the Clowns, Weasels and Elves! 
-  						Responsibilities include solving mysteries and using your imagination!
-    				</div>
-    				<div class="col-md-2">
-    				<ul class="list-group">
-  						<li class="list-group-item"><strong>Posted: </strong><span class="label label-default pull-right">3/10/08</span></li>
-  						<a class="list-group-item">
-  						    <strong class="list-group-item-heading">Positions</strong><br>
-    						<small class="list-group-item-text">Full Time Sleuth</small>
-    					</a>
-  						
-					</ul>
-
-					</div>
-    				<div class="col-md-2">
-					<ul class="list-group">
-
-    					<li class="list-group-item"><strong>Due: </strong><span class="label label-danger pull-right">3/10/09</span></li>
-    					<a class="list-group-item">
-  						    <strong class="list-group-item-heading">Locations</strong><br>
-    						<small class="list-group-item-text">In a webcomic</small>
-    					</a>
-					</ul>
-    				</div>
-    			</div>
-  			</div>
-  			<div class="panel-footer">
-  				<div class="container">
-  					<input type="text" class="input static" value="" data-role="tagsinput" placeholder="Insert Tags Here!"/>
-  				</div>
-  			</div>
-		</div>
-    	
-    	<div class="panel panel-default">
-    		<div class="panel-heading">
-    		<div class="row">
-    			<div class="col-md-8">
-    				<span class="card-title">Amazon Security Developer</span>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="pull-right"><button type="button" class="btn btn-lg btn-success">Apply Now!</button></div>
-    			</div>
-    		</div>
-    		</div>
-  			<div class="panel-body">
-  				<div class="row">
-  					<div class="col-md-8">
-    					Amazon.com, Inc. is an American international electronic commerce company with headquarters in Seattle, 
-    					Washington, United States. It is the world's largest online retailer. Amazon.com started as an online 
-    					bookstore, but soon diversified, selling DVDs, VHSs, CDs, video and MP3 downloads/streaming, software, 
-    					video games, electronics, apparel, furniture, food, toys, and jewelry. 
-    					he company also produces consumer electronics—notably the 
-    					Amazon Kindle e-book reader and the Kindle Fire tablet computer—and 
-    					is a major provider of cloud computing services.
-    				</div>
-    				<div class="col-md-2">
-    				<ul class="list-group">
-  						<li class="list-group-item"><strong>Posted: </strong><span class="label label-default pull-right">3/3/13</span></li>
-  						<a class="list-group-item">
-  						    <strong class="list-group-item-heading">Positions</strong><br>
-    						<small class="list-group-item-text">Internship</small><br>
-    						<small class="list-group-item-text">Full Time</small>
-    					</a>
-  						
-					</ul>
-
-					</div>
-    				<div class="col-md-2">
-
-					<ul class="list-group">
-
-    					<li class="list-group-item"><strong>Due: </strong><span class="label label-danger pull-right">1/1/14</span></li>
-    					<a class="list-group-item">
-  						    <strong class="list-group-item-heading">Locations</strong><br>
-    						<small class="list-group-item-text">Seattle, WA</small>
-    					</a>
-					</ul>
-    				</div>
-    			</div>
-  			</div>
-  			<div class="panel-footer">
-  				<div class="container">
-  					<input type="text" class="input static" value="" data-role="tagsinput" placeholder="Insert Tags Here!"/>
-  				</div>
-  			</div>
-		</div>
 		
-    </div> 
-    
-   
-    
-    
+		<div id="template" class="hidden">
+			<div class='panel panel-default'>
+    <div class='panel-heading'>
+    	<div class='row'>
+    		<div class='col-md-8'>
+    			<span class='card-title'></span>
+    		</div>
+    		<div class='col-md-4'>
+    			<div class='pull-right'><button type='button' class='btn btn-lg btn-success'>Apply Now!</button></div>
+    		</div>
+    	</div>
+    </div>
+  	<div class='panel-body'>
+  		<div class='row'>
+  			<div class='col-md-8 text'>
+    		</div>
+    		<div class='col-md-2'>
+    			<ul class='list-group'>
+  					<li class='list-group-item'><strong>Posted: </strong><span class='label label-default pull-right posted'></span></li>
+  					<a class='list-group-item positions'>
+  						   <strong class='list-group-item-heading'>Positions</strong>
+    				</a>
+  						
+				</ul>
+
+			</div>
+    		<div class='col-md-2'>
+					<ul class='list-group'>
+    					<li class='list-group-item'><strong>Due: </strong><span class='label label-danger pull-right due'></span></li>
+    					<a class='list-group-item locations'>
+  						    <strong class='list-group-item-heading'>Locations</strong>
+    					</a>
+					</ul>
+    				</div>
+    	</div>
+  	</div>
+  	<div class='panel-footer'>
+  		<div class='container'>
+  			<input type='text' class='input static tags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>
+  		</div>
+  	</div>
+</div>
+		</div>
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    
+	<script>
+    function renderElement(elements){
+		if(elements == null){return;}
+		var id = elements.name.replace(/ /g,'');
+		$('<div/>', {'id':id}).appendTo("#main");
+		$("#"+id).prepend($("#template").html());
+		
+		$('#'+id+' .card-title').text(elements.name);
+		$('#'+id+' .text').text(elements.text);
+		$('#'+id+' .posted').text(elements.posted);
+		$('#'+id+' .due').text(elements.due);
+		var i=0,posistion;
+		while(position = elements.positions[i++]){
+			$('#'+id+' .positions').append("<br><small class='list-group-item-text'>"+position+"</small>")
+		}
+		
+		var location;i=0;
+		while(location = elements.locations[i++]){
+			$('#'+id+' .locations').append("<br><small class='list-group-item-text'>"+location+"</small>")
+		}
+		
+		//$('#'+id+' .tags').tagsinput('add', 'some tag');
+    }
+    
+    var amazon = {
+	"name":"Amazon Security Developer",
+	"text":"Amazon.com, Inc. is an American international electronic commerce company with headquarters in Seattle, Washington, United States. It is the world's largest online retailer. Amazon.com started as an online bookstore, but soon diversified, selling DVDs, VHSs, CDs, video and MP3 downloads/streaming, software, video games, electronics, apparel, furniture, food, toys, and jewelry. he company also produces consumer electronics—notably the Amazon Kindle e-book reader and the Kindle Fire tablet computer—and is a major provider of cloud computing services.",
+	"posted":"3/3/13",
+	"due":"1/1/14",
+	"positions": ["Internship","Full-Time"],
+	"locations": ["Seattle, WA"],
+	"tags": ""
+	}
+	var sleuth = {
+	"name":"Problem Sleuth",
+	"text":"Escape your office! Join up with your fellow sleuths! Make peace between the Clowns, Weasels and Elves! Responsibilities include solving mysteries and using your imagination!",
+	"posted":"3/10/08",
+	"due":"1/1/14",
+	"positions": ["Full Time Sleuth"],
+	"locations": ["In a Webcomic"],
+	"tags": ""
+	}
+	
+	renderElement(sleuth);
+    renderElement(amazon);
+    </script>
+    
   </body>
 </html>
