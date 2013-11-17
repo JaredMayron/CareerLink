@@ -137,7 +137,7 @@
 					cellDead.innerHTML = jsonObj.tagged_jobs[i].deadline;
 					var cellPost = row.insertCell(5);
 					cellPost.innerHTML = jsonObj.tagged_jobs[i].posted;
-					//document.getElementById(id).addEventListener("click", DeleteJob(jsonObj.tagged_jobs[i].id), false);
+					document.getElementById(id).addEventListener("click", DeleteJob(jsonObj.tagged_jobs[i].id), false);
 				}
 				
 				//get all companies
