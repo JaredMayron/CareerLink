@@ -17,9 +17,84 @@
     </style>
 	
 	<script type="application/javascript">
+		var username = "james"; // TODO - somehow be getting this from somewhere else - aka it should be first sent from the login page and should then be sent to each following page - unless we can do sessions?
+	
+		function DeleteJob(id){
+			alert("going to delete job with id = " + id);
+			var http_request = new XMLHttpRequest();
+		   try{
+			  // Opera 8.0+, Firefox, Chrome, Safari
+			  http_request = new XMLHttpRequest();
+		   }catch (e){
+			  // Internet Explorer Browsers
+			  try{
+				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			  }catch (e) {
+				 try{
+					http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				 }catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				 }
+			  }
+		   }
+		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/DeleteItem.pl", true);
+		   http_request.send("username="+username+"&id="+id+"&type=job");
+		   //loadJSON();
+		}
+		
+		function RemoveCompany(id) {
+			var http_request = new XMLHttpRequest();
+		   try{
+			  // Opera 8.0+, Firefox, Chrome, Safari
+			  http_request = new XMLHttpRequest();
+		   }catch (e){
+			  // Internet Explorer Browsers
+			  try{
+				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			  }catch (e) {
+				 try{
+					http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				 }catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				 }
+			  }
+		   }
+		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/DeleteItem.pl", true);
+		   http_request.send("username="+username+"&id="+id+"&type=company");
+		   //loadJSON();
+		}
+		
+		function DeleteDoc(id) {
+			var http_request = new XMLHttpRequest();
+		   try{
+			  // Opera 8.0+, Firefox, Chrome, Safari
+			  http_request = new XMLHttpRequest();
+		   }catch (e){
+			  // Internet Explorer Browsers
+			  try{
+				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			  }catch (e) {
+				 try{
+					http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				 }catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				 }
+			  }
+		   }
+		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/DeleteItem.pl", true);
+		   http_request.send("username="+username+"&id="+id+"&type=document");
+		   //loadJSON();
+		}
+	
 		function loadJSON()
 		{
-		   var username = "james";
+		   //var username = "james";
 		   var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/"+username+"_profile.json";
 		   var http_request = new XMLHttpRequest();
 		   try{
@@ -48,9 +123,10 @@
 				//get all jobs
 				var jobtable = document.getElementById("tagged_jobs");
 				for (var i = 0; i < jsonObj.tagged_jobs.length; i++) {
+					var id = "job_" + jsonObj.tagged_jobs[i].id;
 					var row = jobtable.insertRow(1);
 					var cell1 = row.insertCell(0);
-					cell1.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+					cell1.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\" id=\""+ id+"\" onclick=\"DeleteJob()\" value=\""+id+"\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
 					var cellTitle = row.insertCell(1);
 					cellTitle.innerHTML = jsonObj.tagged_jobs[i].title;
 					var cellComp = row.insertCell(2);
@@ -61,6 +137,7 @@
 					cellDead.innerHTML = jsonObj.tagged_jobs[i].deadline;
 					var cellPost = row.insertCell(5);
 					cellPost.innerHTML = jsonObj.tagged_jobs[i].posted;
+					//document.getElementById(id).addEventListener("click", DeleteJob(jsonObj.tagged_jobs[i].id), false);
 				}
 				
 				//get all companies
@@ -95,6 +172,8 @@
 		   http_request.send();
 		}
 		document.addEventListener("DOMContentLoaded", loadJSON, false);
+		
+		
 	</script>
 
 	
@@ -102,7 +181,7 @@
 
   <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
