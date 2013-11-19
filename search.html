@@ -99,7 +99,10 @@
   	</div>
   	<div class='panel-footer'>
   		<div class='container'>
-  			<input type='text' class='input static tags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>
+  		<select multiple data-role="tagsinput" class="tags">
+  			  
+  		</select>
+  			<!--<input type='text' class='input static tags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>--!>
   		</div>
   	</div>
 </div>
@@ -129,7 +132,11 @@
 			$('#'+id+' .locations').append("<br><small class='list-group-item-text'>"+location+"</small>")
 		}
 		
-		//$('#'+id+' .tags').tagsinput('add', 'some tag');
+		var tag;i=0;
+		while(tag = elements.tags[i++]){
+			alert("hi");
+			$('#'+id+' .tags').append("<option value='"+tag+"'>"+tag+"</option>")
+		}
     }
     
     var amazon = {
@@ -139,7 +146,7 @@
 	"due":"1/1/14",
 	"positions": ["Internship","Full-Time"],
 	"locations": ["Seattle, WA"],
-	"tags": ""
+	"tags": ["test","it works"]
 	}
 	var sleuth = {
 	"name":"Problem Sleuth",
@@ -148,10 +155,10 @@
 	"due":"1/1/14",
 	"positions": ["Full Time Sleuth"],
 	"locations": ["In a Webcomic"],
-	"tags": ""
+	"tags": []
 	}
 	
-	renderElement(sleuth);
+// 	renderElement(sleuth);
     renderElement(amazon);
     </script>
     
