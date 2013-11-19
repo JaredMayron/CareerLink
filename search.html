@@ -99,7 +99,7 @@
   			</div>
   			<div class='panel-footer'>
   				<div class='container'>
-  					<input type='text' class='input static tags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>
+  					<input type='text' class='input static tags' value='test,test2' data-role='tagsinput' placeholder='Insert Tags Here!'/>
   				</div>
   			</div>
 		</div>
@@ -129,76 +129,75 @@
 			$('#'+id+' .locations').append("<br><small class='list-group-item-text'>"+location+"</small>");
 		}
 		
-		$('#'+id+' .tags').tagsinput('add', 'some tag');
         }
     
-    	function GetSampleJobs() {
-		var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/CareerLink/samplejobs.json";
-		var http_request = new XMLHttpRequest();
-		try{
-			// Opera 8.0+, Firefox, Chrome, Safari
-			http_request = new XMLHttpRequest();
-		} catch (e) {
-			// Internet Explorer Browsers
-			try {
-				http_request = new ActiveXObject("Msxml2.XMLHTTP");
-			} catch (e) {
-				try {
-				        http_request = new ActiveXObject("Microsoft.XMLHTTP");
-				} catch (e){
-					// Something went wrong
-					alert("Your browser broke!");
-					return false;
-				}
-		        }
-		}
-		http_request.onreadystatechange  = function(){
-		        if (http_request.readyState == 4  )
-		        {
-		                var jsonObj = JSON.parse(http_request.responseText);
-                                
-                                for (var i = 0; i < jsonObj.jobs.length; i++) {
-        
-                                        renderElement(jsonObj.jobs[i]);
-                                }
-                        }
-                }
-                http_request.open("GET", data_file, true);
-		http_request.send();
-        }
-
-        document.addEventListener("DOMContentLoaded", GetSampleJobs, false);
-	
-	//renderElement(sleuth);
-    	//renderElement(amazon);
-
-        //function to be run anytime a tag is added or deleted - all these tags will then be associated with the given job and person
-        function UpdateTags() {
-                var username = "james";
-                var id; //id from job
-                var tags = $("input").tagsinput('items'); //get all tags
-                alert(tags);
-                var http_request = new XMLHttpRequest();
-		try{
-			  // Opera 8.0+, Firefox, Chrome, Safari
-			  http_request = new XMLHttpRequest();
-		}catch (e){
-			  // Internet Explorer Browsers
-		        try{
-				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
-			  }catch (e) {
-				 try{
-					http_request = new ActiveXObject("Microsoft.XMLHTTP");
-				 }catch (e){
-					// Something went wrong
-					alert("Your browser broke!");
-					return false;
-				 }
-			  }
-		   }
-		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/TagMethods.pl", true);
-		   http_request.send("username="+username+"&id="+id+"&tags="+tags);
-        }
+//     	function GetSampleJobs() {
+// 		var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/CareerLink/samplejobs.json";
+// 		var http_request = new XMLHttpRequest();
+// 		try{
+// 			// Opera 8.0+, Firefox, Chrome, Safari
+// 			http_request = new XMLHttpRequest();
+// 		} catch (e) {
+// 			// Internet Explorer Browsers
+// 			try {
+// 				http_request = new ActiveXObject("Msxml2.XMLHTTP");
+// 			} catch (e) {
+// 				try {
+// 				        http_request = new ActiveXObject("Microsoft.XMLHTTP");
+// 				} catch (e){
+// 					// Something went wrong
+// 					alert("Your browser broke!");
+// 					return false;
+// 				}
+// 		        }
+// 		}
+// 		http_request.onreadystatechange  = function(){
+// 		        if (http_request.readyState == 4  )
+// 		        {
+// 		                var jsonObj = JSON.parse(http_request.responseText);
+//                                 
+//                                 for (var i = 0; i < jsonObj.jobs.length; i++) {
+//         
+//                                         renderElement(jsonObj.jobs[i]);
+//                                 }
+//                         }
+//                 }
+//                 http_request.open("GET", data_file, true);
+// 		http_request.send();
+//         }
+// 
+//         document.addEventListener("DOMContentLoaded", GetSampleJobs, false);
+// 	
+// 	//renderElement(sleuth);
+//     	//renderElement(amazon);
+// 
+//         //function to be run anytime a tag is added or deleted - all these tags will then be associated with the given job and person
+//         function UpdateTags() {
+//                 var username = "james";
+//                 var id; //id from job
+//                 var tags = $("input").tagsinput('items'); //get all tags
+//                 alert(tags);
+//                 var http_request = new XMLHttpRequest();
+// 		try{
+// 			  // Opera 8.0+, Firefox, Chrome, Safari
+// 			  http_request = new XMLHttpRequest();
+// 		}catch (e){
+// 			  // Internet Explorer Browsers
+// 		        try{
+// 				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
+// 			  }catch (e) {
+// 				 try{
+// 					http_request = new ActiveXObject("Microsoft.XMLHTTP");
+// 				 }catch (e){
+// 					// Something went wrong
+// 					alert("Your browser broke!");
+// 					return false;
+// 				 }
+// 			  }
+// 		   }
+// 		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/TagMethods.pl", true);
+// 		   http_request.send("username="+username+"&id="+id+"&tags="+tags);
+//         }
     </script>
     
   </body>
