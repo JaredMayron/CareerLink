@@ -39,7 +39,7 @@
 				 }
 			  }
 		   }
-		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/DeleteItem.pl", true);
+		   http_request.open("GET", "http://students.cec.wustl.edu/~morane/CareerLink/DeleteItem.pl", true);
 		   http_request.send("username="+username+"&id="+id+"&type=job");
 		   //loadJSON();
 		}
@@ -63,7 +63,7 @@
 				 }
 			  }
 		   }
-		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/DeleteItem.pl", true);
+		   http_request.open("GET", "http://students.cec.wustl.edu/~morane/CareerLink/DeleteItem.pl", true);
 		   http_request.send("username="+username+"&id="+id+"&type=company");
 		   //loadJSON();
 		}
@@ -143,7 +143,7 @@
 					var id = "job_" + jsonObj.tagged_jobs[i].id;
 					var row = jobtable.insertRow(1);
 					var cell1 = row.insertCell(0);
-					cell1.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\" id=\""+ id+"\" onclick=\"DeleteJob()\" value=\""+id+"\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+					cell1.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\" id=\""+ id+"\" onclick=\"DeleteJob("+jsonObj.tagged_jobs[i].id+")\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
 					var cellTitle = row.insertCell(1);
 					cellTitle.innerHTML = jsonObj.tagged_jobs[i].title;
 					var cellComp = row.insertCell(2);
@@ -154,7 +154,7 @@
 					cellDead.innerHTML = jsonObj.tagged_jobs[i].deadline;
 					var cellPost = row.insertCell(5);
 					cellPost.innerHTML = jsonObj.tagged_jobs[i].posted;
-					document.getElementById(id).addEventListener("click", DeleteJob(jsonObj.tagged_jobs[i].id), false);
+					//document.getElementById(id).addEventListener("click", DeleteJob(jsonObj.tagged_jobs[i].id), false);
 				}
 				
 				//get all companies
@@ -162,7 +162,7 @@
 				for (var j=0; j < jsonObj.fave_companies.length; j++) {
 					var row2 = cmptable.insertRow(1);
 					var cell2 = row2.insertCell(0);
-					cell2.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+					cell2.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\" onclick=\"RemoveCompany("+jsonObj.fave_companies[j].id+")\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
 					var cellTitle = row2.insertCell(1);
 					cellTitle.innerHTML=jsonObj.fave_companies[j].name;
 					var cellCareer = row2.insertCell(2);
@@ -179,7 +179,7 @@
 					/*cellEdit.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\" formtarget=\"_blank\" onclick=\"window.open(\'"+jsonObj.doc_links[k].link+"\')><span class=\"glyphicon glyphicon-pencil\"></span></button>"; */
 					cellEdit.innerHTML="<a href=\"" +jsonObj.doc_links[k].link+"\"><span class=\"glyphicon glyphicon-pencil\"></span></a>";
 					var cellDelete = row3.insertCell(1);
-					cellDelete.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+					cellDelete.innerHTML="<button type=\"button\" class=\"btn btn-default btn-sm\" onclick=\"DeleteDoc("+jsonObj.doc_links[k].id+")\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
 					var cell3 = row3.insertCell(2);
 					cell3.innerHTML=jsonObj.doc_links[k].title;
 				}

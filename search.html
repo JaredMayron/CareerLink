@@ -99,7 +99,7 @@
   			</div>
   			<div class='panel-footer'>
   				<div class='container'>
-  					<input type='text' class='input static tags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>
+  					<input type='text' class='input static thetags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>
   				</div>
   			</div>
 		</div>
@@ -112,7 +112,7 @@
     	function renderElement(elements){
 		if(elements == null){return;}
 		var id = elements.name.replace(/ /g,'');
-		$('<div>', {'id':id}).appendTo("#main"); //this was div / - not sure what it was supposed to be... -EM
+		$('<div/>', {'id':id}).appendTo("#main"); //this was div / - not sure what it was supposed to be... -EM
 		$("#"+id).prepend($("#template").html());
 		
 		$('#'+id+' .card-title').text(elements.name);
@@ -129,7 +129,7 @@
 			$('#'+id+' .locations').append("<br><small class='list-group-item-text'>"+location+"</small>");
 		}
 		
-		$('#'+id+' .tags').tagsinput('add', 'some tag');
+		//$('#'+id+' .thetags').tagsinput('add', 'cool job');
         }
     
     	function GetSampleJobs() {
