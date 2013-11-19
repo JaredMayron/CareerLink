@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Career Link</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+		body {
+			padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		}
+
+    </style>
+		<script type="text/javascript">
+		function writeCookie(name,value,days) {
+			var date, expires;
+			if (days) {
+				date = new Date();
+				date.setTime(date.getTime()+(days*24*60*60*1000));
+				expires = "; expires=" + date.toGMTString();
+			} else{
+				expires = "";
+			}
+			document.cookie = name + "=" + value + expires + "; path=/";
+			alert("created cookie");
+		}
+		
+		function login() {
+			var username = document.getElementById("username").value;
+			//alert("username = " + username);
+			var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/users.json";
+		   var http_request = new XMLHttpRequest();
+		   try{
+			  // Opera 8.0+, Firefox, Chrome, Safari
+			  http_request = new XMLHttpRequest();
+		   }catch (e){
+			  // Internet Explorer Browsers
+			  try{
+				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			  }catch (e) {
+				 try{
+					http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				 }catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				 }
+			  }
+		   }
+		   http_request.onreadystatechange  = function(){
+			  if (http_request.readyState == 4  )
+			  {
+				var jsonObj = JSON.parse(http_request.responseText);
+				alert(jsonObj);
+				var found = 0; //not found
+				for (var i = 0; i < jsonObj.students; i++) {
+					if (jsonObj.students[i] == username) {
+						found = 1; //found!
+						alert("found username!");
+					}
+				}
+				if (found == 1) {
+					writeCookie("username", username, 1);
+					alert("got user - to redirect!");
+					//redirect to home.html
+					window.location = 'http://students.cec.wustl.edu/~morane/CareerLink/CareerLink/home.html';
+				}
+				else {
+					//write error message
+					document.getElementById("errorMessage").innerHTML = "Username not found, please try again.";
+				}
+			  }
+		   }
+		   http_request.open("GET", data_file, true);
+		   http_request.send();
+		}
+		
+		document.getElementById("submit").addEventListener("onsubmit", login, false);
+	</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>CareerLink <small>Login <span class="label label-danger">Still in Alpha!</span></small></h1>
+			</div>
+		
+			<p class="text-danger" id="errorMessage"></p>
+			<form role="form" onsubmit="login">
+			  <div class="form-group">
+				<label for="username">Welcome!</label>
+				<input type="text" class="form-control" id="username" placeholder="Enter username">
+			  </div>
+			  <button type="submit" id="submit" class="btn btn-default">Sign in</button>
+			</form>
+		</div>
+
+
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
