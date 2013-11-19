@@ -50,69 +50,69 @@
     </div>
 
     <div id="main" class="container">
-		<div class="row search">
+	<div class="row search">
     		<form role="form">
     		    <div class="input-group">
-					<input type="text" class="form-control input-sm">
+			<input type="text" class="form-control input-sm">
     		        <span class="input-group-btn">
         		        <button class="btn btn-default btn-sm" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-    			    </span>
-      			 </div>
-  		  </form>
-		</div>
+    			</span>
+      		    </div>
+  		</form>
+	</div>
 		
-		<div id="template" class="hidden">
-			<div class='panel panel-default'>
-    <div class='panel-heading'>
-    	<div class='row'>
-    		<div class='col-md-8'>
-    			<span class='card-title'></span>
-    		</div>
-    		<div class='col-md-4'>
-    			<div class='pull-right'><button type='button' class='btn btn-lg btn-success'>Apply Now!</button></div>
-    		</div>
-    	</div>
-    </div>
-  	<div class='panel-body'>
-  		<div class='row'>
-  			<div class='col-md-8 text'>
-    		</div>
-    		<div class='col-md-2'>
-    			<ul class='list-group'>
-  					<li class='list-group-item'><strong>Posted: </strong><span class='label label-default pull-right posted'></span></li>
-  					<a class='list-group-item positions'>
-  						   <strong class='list-group-item-heading'>Positions</strong>
-    				</a>
-  						
-				</ul>
-
-			</div>
-    		<div class='col-md-2'>
-					<ul class='list-group'>
-    					<li class='list-group-item'><strong>Due: </strong><span class='label label-danger pull-right due'></span></li>
-    					<a class='list-group-item locations'>
-  						    <strong class='list-group-item-heading'>Locations</strong>
-    					</a>
-					</ul>
+	<div id="template" class="hidden">
+		<div class='panel panel-default'>
+    			<div class='panel-heading'>
+    				<div class='row'>
+    					<div class='col-md-8'>
+    						<span class='card-title'></span>
+    					</div>
+    					<div class='col-md-4'>
+    						<div class='pull-right'><button type='button' class='btn btn-lg btn-success'>Apply Now!</button></div>
+    						</div>
+    					</div>
     				</div>
-    	</div>
-  	</div>
-  	<div class='panel-footer'>
-  		<div class='container'>
-  			<input type='text' class='input static tags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>
-  		</div>
-  	</div>
-</div>
+  			<div class='panel-body'>
+  				<div class='row'>
+  					<div class='col-md-8 text'>
+    					</div>
+    					<div class='col-md-2'>
+    						<ul class='list-group'>
+  							<li class='list-group-item'><strong>Posted: </strong><span class='label label-default pull-right posted'></span></li>
+  								<a class='list-group-item positions'>
+  							 <strong class='list-group-item-heading'>Positions</strong>
+    							</a>
+  						
+						</ul>
+
+					</div>
+    					<div class='col-md-2'>
+						<ul class='list-group'>
+    							<li class='list-group-item'><strong>Due: </strong><span class='label label-danger pull-right due'></span></li>
+    							<a class='list-group-item locations'>
+  							    <strong class='list-group-item-heading'>Locations</strong>
+    							</a>
+						</ul>
+    					</div>
+    				</div>
+  			</div>
+  			<div class='panel-footer'>
+  				<div class='container'>
+  					<input type='text' class='input static tags' value='' data-role='tagsinput' placeholder='Insert Tags Here!'/>
+  				</div>
+  			</div>
 		</div>
+	</div>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
     
-	<script>
-    function renderElement(elements){
+    <script>
+    	function renderElement(elements){
 		if(elements == null){return;}
 		var id = elements.name.replace(/ /g,'');
-		$('<div/>', {'id':id}).appendTo("#main");
+		$('<div>', {'id':id}).appendTo("#main"); //this was div / - not sure what it was supposed to be... -EM
 		$("#"+id).prepend($("#template").html());
 		
 		$('#'+id+' .card-title').text(elements.name);
@@ -121,38 +121,84 @@
 		$('#'+id+' .due').text(elements.due);
 		var i=0,posistion;
 		while(position = elements.positions[i++]){
-			$('#'+id+' .positions').append("<br><small class='list-group-item-text'>"+position+"</small>")
+			$('#'+id+' .positions').append("<br><small class='list-group-item-text'>"+position+"</small>");
 		}
 		
 		var location;i=0;
 		while(location = elements.locations[i++]){
-			$('#'+id+' .locations').append("<br><small class='list-group-item-text'>"+location+"</small>")
+			$('#'+id+' .locations').append("<br><small class='list-group-item-text'>"+location+"</small>");
 		}
 		
-		//$('#'+id+' .tags').tagsinput('add', 'some tag');
-    }
+		$('#'+id+' .tags').tagsinput('add', 'some tag');
+        }
     
-    var amazon = {
-	"name":"Amazon Security Developer",
-	"text":"Amazon.com, Inc. is an American international electronic commerce company with headquarters in Seattle, Washington, United States. It is the world's largest online retailer. Amazon.com started as an online bookstore, but soon diversified, selling DVDs, VHSs, CDs, video and MP3 downloads/streaming, software, video games, electronics, apparel, furniture, food, toys, and jewelry. he company also produces consumer electronics—notably the Amazon Kindle e-book reader and the Kindle Fire tablet computer—and is a major provider of cloud computing services.",
-	"posted":"3/3/13",
-	"due":"1/1/14",
-	"positions": ["Internship","Full-Time"],
-	"locations": ["Seattle, WA"],
-	"tags": ""
-	}
-	var sleuth = {
-	"name":"Problem Sleuth",
-	"text":"Escape your office! Join up with your fellow sleuths! Make peace between the Clowns, Weasels and Elves! Responsibilities include solving mysteries and using your imagination!",
-	"posted":"3/10/08",
-	"due":"1/1/14",
-	"positions": ["Full Time Sleuth"],
-	"locations": ["In a Webcomic"],
-	"tags": ""
-	}
+    	function GetSampleJobs() {
+		var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/CareerLink/samplejobs.json";
+		var http_request = new XMLHttpRequest();
+		try{
+			// Opera 8.0+, Firefox, Chrome, Safari
+			http_request = new XMLHttpRequest();
+		} catch (e) {
+			// Internet Explorer Browsers
+			try {
+				http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
+				try {
+				        http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				}
+		        }
+		}
+		http_request.onreadystatechange  = function(){
+		        if (http_request.readyState == 4  )
+		        {
+		                var jsonObj = JSON.parse(http_request.responseText);
+                                
+                                for (var i = 0; i < jsonObj.jobs.length; i++) {
+        
+                                        renderElement(jsonObj.jobs[i]);
+                                }
+                        }
+                }
+                http_request.open("GET", data_file, true);
+		http_request.send();
+        }
+
+        document.addEventListener("DOMContentLoaded", GetSampleJobs, false);
 	
-	renderElement(sleuth);
-    renderElement(amazon);
+	//renderElement(sleuth);
+    	//renderElement(amazon);
+
+        //function to be run anytime a tag is added or deleted - all these tags will then be associated with the given job and person
+        function UpdateTags() {
+                var username = "james";
+                var id; //id from job
+                var tags = $("input").tagsinput('items'); //get all tags
+                alert(tags);
+                var http_request = new XMLHttpRequest();
+		try{
+			  // Opera 8.0+, Firefox, Chrome, Safari
+			  http_request = new XMLHttpRequest();
+		}catch (e){
+			  // Internet Explorer Browsers
+		        try{
+				 http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			  }catch (e) {
+				 try{
+					http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				 }catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				 }
+			  }
+		   }
+		   http_request.open("POST", "http://students.cec.wustl.edu/~morane/CareerLink/TagMethods.pl", true);
+		   http_request.send("username="+username+"&id="+id+"&tags="+tags);
+        }
     </script>
     
   </body>
