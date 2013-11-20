@@ -8,6 +8,10 @@ def index():
 @route('/profile')
 def profile():
     return template('profile')
+    
+@route('/search')
+def profile():
+    return template('search')
 
 @route('/bootstrap/<filepath:path>')
 def boot(filepath):
