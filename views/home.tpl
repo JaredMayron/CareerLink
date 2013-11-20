@@ -56,7 +56,7 @@
 	<div class="row search">
     		<form role="form">
     		    <div class="input-group">
-					<input type="text" class="form-control placeholder="Search here!" input-sm">
+					<input type="text" class="form-control input-sm" placeholder="Search here!">
     		        <span class="input-group-btn">
         		        <button class="btn btn-default btn-sm" type="submit"><span class="glyphicon glyphicon-search"></span></button>
     			    </span>
