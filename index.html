@@ -26,12 +26,10 @@
 				expires = "";
 			}
 			document.cookie = name + "=" + value + expires + "; path=/";
-			alert("created cookie");
 		}
 		
 		function login() {
 			var username = document.getElementById("username").value;
-			//alert("username = " + username);
 			var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/CareerLink/users.json";
 		   var http_request = new XMLHttpRequest();
 		   try{
@@ -55,17 +53,15 @@
 			  if (http_request.readyState == 4  )
 			  {
 				var jsonObj = JSON.parse(http_request.responseText);
-				alert(jsonObj);
 				var found = 0; //not found
-				for (var i = 0; i < jsonObj.students; i++) {
-					if (jsonObj.students[i] == username) {
+				for (var i = 0; i < jsonObj.students.length; i++) {
+					if (jsonObj.students[i].username == username) {
 						found = 1; //found!
 						alert("found username!");
 					}
 				}
 				if (found == 1) {
 					writeCookie("username", username, 1);
-					alert("got user - to redirect!");
 					//redirect to home.html
 					window.location = 'http://students.cec.wustl.edu/~morane/CareerLink/CareerLink/home.html';
 				}

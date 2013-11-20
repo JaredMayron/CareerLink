@@ -17,7 +17,7 @@
     </style>
 	
 	<script type="application/javascript">
-		var username = "james"; // TODO - somehow be getting this from somewhere else - aka it should be first sent from the login page and should then be sent to each following page - unless we can do sessions?
+		var username;
 	
 		function DeleteJob(id){
 			alert("going to delete job with id = " + id);
@@ -101,6 +101,7 @@
 					c = c.substring(1,c.length);
 				}
 				if (c.indexOf(nameEQ) == 0) {
+					alert("found cooke - name = " + name);
 					return c.substring(nameEQ.length,c.length);
 				}
 			}
@@ -110,7 +111,7 @@
 		function loadJSON()
 		{
 			//get username from cookie
-			//username = readCookie("username");
+			username = readCookie("username");
 		   //var username = "james";
 		   var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/"+username+"_profile.json";
 		   var http_request = new XMLHttpRequest();
