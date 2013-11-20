@@ -39,11 +39,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="home.html">Home</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li class="active"><a href="search.html">Search</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="careerFair.html">Career Fair</a></li>
+            <li><a href="home">Home</a></li>
+              <li><a href="profile">Profile</a></li>
+              <li class="active"><a href="search">Search</a></li>
+              <li><a href="events">Events</a></li>
+              <li><a href="careerFair">Career Fair</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
