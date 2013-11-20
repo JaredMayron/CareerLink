@@ -39,11 +39,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="home.html">Home</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="search.html">Search</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="careerFair.html">Career Fair</a></li>
+            <li class="active"><a href="home">Home</a></li>
+              <li><a href="profile">Profile</a></li>
+              <li><a href="search">Search</a></li>
+              <li><a href="events">Events</a></li>
+              <li><a href="careerFair">Career Fair</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -51,7 +51,7 @@
     
 <div class="container">
 	<div class="page-header">
-  		<h1>CareerLink <small>Home Page <span class="label label-danger">Still in Alpha!</span></small></h1>
+  		<h1>CareerLink <small>Home Page</small></h1>
 	</div>
 	<div class="row search">
     		<form role="form">
