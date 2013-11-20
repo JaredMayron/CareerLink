@@ -95,6 +95,7 @@
     					</a>
 					</ul>
     				</div>
+
     	</div>
   	</div>
   	<div class='panel-footer'>
@@ -134,30 +135,43 @@
 			$('#'+id+' .tags').append("<option value='"+tag+"'>"+tag+"</option>")
 		}
 		
-    }
-    
-    var amazon = {
-	"name":"Amazon Security Developer",
-	"text":"Amazon.com, Inc. is an American international electronic commerce company with headquarters in Seattle, Washington, United States. It is the world's largest online retailer. Amazon.com started as an online bookstore, but soon diversified, selling DVDs, VHSs, CDs, video and MP3 downloads/streaming, software, video games, electronics, apparel, furniture, food, toys, and jewelry. he company also produces consumer electronics—notably the Amazon Kindle e-book reader and the Kindle Fire tablet computer—and is a major provider of cloud computing services.",
-	"posted":"3/3/13",
-	"due":"1/1/14",
-	"positions": ["Internship","Full-Time"],
-	"locations": ["Seattle, WA"],
-	"tags": ["test","it works"]
 	}
-	var sleuth = {
-	"name":"Problem Sleuth",
-	"text":"Escape your office! Join up with your fellow sleuths! Make peace between the Clowns, Weasels and Elves! Responsibilities include solving mysteries and using your imagination!",
-	"posted":"3/10/08",
-	"due":"1/1/14",
-	"positions": ["Full Time Sleuth"],
-	"locations": ["In a Webcomic"],
-	"tags": []
+		
+	function GetSampleJobs() {
+		var data_file = "http://students.cec.wustl.edu/~morane/CareerLink/CareerLink/testJobs.json";
+		var http_request = new XMLHttpRequest();
+		try{
+			// Opera 8.0+, Firefox, Chrome, Safari
+			http_request = new XMLHttpRequest();
+		} catch (e) {
+			// Internet Explorer Browsers
+			try {
+				http_request = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (e) {
+				try {
+						http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e){
+					// Something went wrong
+					alert("Your browser broke!");
+					return false;
+				}
+			}
+		}
+		http_request.onreadystatechange  = function(){
+		    if (http_request.readyState == 4  )
+		    {
+				var jsonObj = JSON.parse(http_request.responseText);
+				for(var i = 0; i < jsonObj.jobs.length; i++) {
+					renderElement(jsonObj.jobs[i]);
+				}
+			}
+		}
+		http_request.open("GET", data_file, true);
+		http_request.send();
 	}
 
-	
-// 	renderElement(sleuth);
-//     renderElement(amazon);
+   document.addEventListener("DOMContentLoaded", GetSampleJobs, false);
+
     </script>
     
   </body>

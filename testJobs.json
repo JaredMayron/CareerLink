@@ -1,4 +1,4 @@
-{"list":[
+{"jobs":[
 {
 	"name":"Amazon Security Developer",
 	"text":"Amazon.com, Inc. is an American international electronic commerce company with headquarters in Seattle, Washington, United States. It is the world's largest online retailer. Amazon.com started as an online bookstore, but soon diversified, selling DVDs, VHSs, CDs, video and MP3 downloads/streaming, software, video games, electronics, apparel, furniture, food, toys, and jewelry. he company also produces consumer electronics—notably the Amazon Kindle e-book reader and the Kindle Fire tablet computer—and is a major provider of cloud computing services.",
@@ -7,6 +7,6 @@
 	"positions": ["Internship","Full-Time"],
 	"locations": ["Seattle, WA"],
 	"tags": []
-},
+}]
 
 }
