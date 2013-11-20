@@ -28,7 +28,9 @@ def search(page, regex):
 	result = []
 	
 	if regex == previousRegex:
-		
+		start = resultsPerPage * page
+		end = start + resultsPerPage
+		return template('search.tpl', search=result[start:end]) 
 		
 	regex = previousRegex
 	for arg in args:
@@ -67,7 +69,7 @@ def search(page, regex):
 	result = OrderedSet(result)
 	start = resultsPerPage * page
 	end = start + resultsPerPage
-	return template('search.tpl', search=result[start end]) 
+	return template('search.tpl', search=result[start:end]) 
 		
 		
 			
