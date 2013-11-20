@@ -12,6 +12,10 @@ def profile():
 @route('/search')
 def profile():
     return template('search.tpl')
+    
+@route('/events')
+def events():
+	return template('events.tpl')
 
 @route('/bootstrap/<filepath:path>')
 def boot(filepath):
