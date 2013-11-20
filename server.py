@@ -37,7 +37,8 @@ def search(page, regex):
 	
 		if arg in tags:
 			result += tags[arg]
-			
+
+	for arg in args:
 		if len(arg)>3:
 			#Placeholder SQL statements
 			if "/" in arg:
@@ -48,6 +49,8 @@ def search(page, regex):
 			for row in cursor.fetchall():
 				result.append(parseJobObject(row))
 			
+	for arg in args:
+		if len(arg)>3:
 			cursor.execute("SELECT * FROM jobs WHERE title LIKE %s",arg)
 			for row in cursor.fetchall():
 				result.append(parseJobObject(row))
@@ -60,7 +63,9 @@ def search(page, regex):
 			cursor.execute("SELECT * FROM jobs WHERE position LIKE %s",arg)
 			for row in cursor.fetchall():
 				result.append(parseJobObject(row))
-			
+				
+	for arg in args:
+		if len(arg)>5:
 			#Maybe a description select?!?
 			cursor.execute("SELECT * FROM jobs WHERE description LIKE %s",arg)
 			for row in cursor.fetchall():
