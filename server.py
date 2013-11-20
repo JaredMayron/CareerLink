@@ -3,7 +3,7 @@ from bottle import route, run, template, static_file
 @route('/')
 @route('/home')
 def index():
-    return template('home.html')
+    return template('home')
 
 @route('/profile')
 def profile():
