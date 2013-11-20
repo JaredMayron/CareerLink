@@ -3,15 +3,15 @@ from bottle import route, run, template, static_file
 @route('/')
 @route('/home')
 def index():
-    return template('home')
+    return template('home.tpl')
 
 @route('/profile')
 def profile():
-    return template('profile')
+    return template('profile.tpl')
     
 @route('/search')
 def profile():
-    return template('search')
+    return template('search.tpl')
 
 @route('/bootstrap/<filepath:path>')
 def boot(filepath):
