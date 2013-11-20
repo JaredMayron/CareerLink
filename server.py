@@ -92,8 +92,8 @@ def input(filepath):
     
 
 def OrderedSet(list):
-	mmap = {}
-    oset = [] 
+    mmap = {}
+    oset = []
     for item in list:
         if item not in mmap:
                 mmap[item] = 1
