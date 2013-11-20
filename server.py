@@ -2,7 +2,7 @@ import re, MySQLdb
 from bottle import route, run, template, static_file
 
 tags = {}
-#db = MySQLdb.connect(host="localhost", user="appuser", passwd="",db="onco")
+db = MySQLdb.connect(host="localhost", user="appuser", passwd="",db="onco")
 cursor = db.cursor()
 
 resultsPerPage = 4
