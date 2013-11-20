@@ -29,8 +29,4 @@ def static(filepath):
 def input(filepath):
     return static_file(filepath, root='/bootstrap-tagsinput/')
 
-<<<<<<< HEAD
 run(host='ec2-54-234-44-211.compute-1.amazonaws.com', port=8080)
-=======
-run(host='ec2-54-234-44-211.compute-1.amazonaws.com', port=8080)
->>>>>>> upstream/master
