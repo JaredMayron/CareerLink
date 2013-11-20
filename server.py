@@ -1,4 +1,4 @@
-import re, MYSQLdb
+import re, MySQLdb
 from bottle import route, run, template, static_file
 
 tags = {}
